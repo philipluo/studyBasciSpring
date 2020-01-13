@@ -1,0 +1,16 @@
+一些更新
+
+参见MyFirstConfig
+ 1. @ComponentScan默认扫描其类路径下的所有声明了@Component的bean并将其注册到bean工厂
+ 2. 通过@Bean可以实例化想要的任何一个实例（bean）并将其注册到Spring bean工厂里面，和@Configration是一样的
+ 3. 为了实现异步Event listener，声明了一个声明了SimpleAsyncTaskExecutor
+ 并将其注入到新声明的一个SimpleApplicationEventMulticaster的实例中
+ bean的名称是applicationEventMulticaster
+ 等同于AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME
+ 才能被AbstractApplicationContext在initApplicationEventMulticaster的时候拿到
+ 4. 或者直接使用@EnableAsync，等同于3，开启异步功能，但此异步与3中加一个SimpleAsyncTaskExecutor不一样
+ 
+参见CDPlayer，Spring工厂在初始化bean的时候会先new实例，调用类的构造方法
+ * 所以构造方法注入会先被执行
+ * setter方法注入会后被执行
+ * 如果在Config中使用了构造方法注入或者setter方法装配，会被类中的@Autowired装备覆盖
