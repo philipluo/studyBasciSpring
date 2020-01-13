@@ -1,4 +1,4 @@
-一些更新
+学习笔记
 
 参见MyFirstConfig
  1. @ComponentScan默认扫描其类路径下的所有声明了@Component的bean并将其注册到bean工厂
